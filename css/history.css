@@ -45,6 +45,16 @@ ul { padding-left: 20px; line-height: 2; }
 
 li strong { color: #2e6b2e; }
 
+/* 004で追加：リスト区切り線 */
+section ul li {
+  border-bottom: 1px dotted #b5d4b5;
+  padding: 4px 0;
+}
+
+section ul li:last-child {
+  border-bottom: none;
+}
+
 footer {
   text-align: center;
   padding: 20px;
