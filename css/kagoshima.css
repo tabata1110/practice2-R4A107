@@ -1,0 +1,339 @@
+/* ===========================
+   鹿児島の伝統工芸 - スタイル
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream:      #F7F2EA;
+  --ink:        #1C1710;
+  --gold:       #B8913E;
+  --gold-light: #E8D9B0;
+  --charcoal:   #2E2A24;
+  --muted:      #6B6257;
+  --white:      #FFFFFF;
+
+  --font-serif: 'Noto Serif JP', serif;
+  --font-sans:  'Noto Sans JP', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--cream);
+  color: var(--ink);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* --- ヘッダー --- */
+.site-header {
+  background-color: var(--ink);
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--gold);
+}
+
+.site-header .logo {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.site-nav a {
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  text-decoration: none;
+  margin-left: 2rem;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.site-nav a:hover { opacity: 1; }
+
+/* --- ヒーロー --- */
+.page-hero {
+  background-color: var(--ink);
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 40px,
+    rgba(184,145,62,0.04) 40px,
+    rgba(184,145,62,0.04) 41px
+  );
+}
+
+.page-hero .label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.page-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+  position: relative;
+}
+
+.page-hero h1 span { color: var(--gold); }
+
+.page-hero .subtitle {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 1.2rem;
+  position: relative;
+}
+
+/* --- セクション共通 --- */
+.craft-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.craft-section + .craft-section {
+  border-top: 1px solid var(--gold-light);
+}
+
+/* --- 見出し --- */
+.section-header { margin-bottom: 2.5rem; }
+
+.section-header .eyebrow,
+.subsection-header .eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.section-header .subtitle {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.subsection-header {
+  margin: 3rem 0 1.5rem;
+}
+
+.subsection-header h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* --- 本文 --- */
+.body-text {
+  font-size: 0.97rem;
+  color: var(--charcoal);
+  line-height: 2;
+  margin-bottom: 1.6rem;
+}
+
+/* --- プルクォート --- */
+.pull-quote {
+  border-left: 2px solid var(--gold);
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.75rem;
+  background-color: var(--white);
+}
+
+.pull-quote p {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--charcoal);
+  line-height: 1.9;
+  font-style: italic;
+}
+
+/* --- 白薩摩・黒薩摩カード --- */
+.dual-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.dual-card {
+  padding: 2rem 1.75rem;
+  border-radius: 2px;
+  position: relative;
+}
+
+.dual-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background-color: var(--gold);
+}
+
+.dual-card.shiro {
+  background-color: var(--white);
+  border: 1px solid var(--gold-light);
+}
+
+.dual-card.kuro {
+  background-color: var(--ink);
+  border: 1px solid var(--charcoal);
+}
+
+.dual-card .card-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.dual-card.shiro .card-title { color: var(--ink); }
+.dual-card.kuro  .card-title { color: var(--gold-light); }
+
+.dual-card .card-en {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.dual-card.shiro .card-en { color: var(--muted); }
+.dual-card.kuro  .card-en { color: rgba(255,255,255,0.4); }
+
+.dual-card .card-body { font-size: 0.875rem; line-height: 1.9; }
+.dual-card.shiro .card-body { color: var(--charcoal); }
+.dual-card.kuro  .card-body { color: rgba(255,255,255,0.75); }
+
+/* --- 特徴リスト --- */
+.feature-list {
+  list-style: none;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.feature-list li {
+  background-color: var(--white);
+  border: 1px solid var(--gold-light);
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  line-height: 1.7;
+  border-radius: 0 2px 2px 0;
+}
+
+.feature-list li strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+/* --- タイムライン --- */
+.timeline {
+  margin: 1rem 0 2.5rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 1px;
+  background-color: var(--gold-light);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1.25rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem; top: 7px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background-color: var(--gold);
+  border: 2px solid var(--cream);
+  box-shadow: 0 0 0 1px var(--gold);
+}
+
+.timeline-item .year {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-item .event {
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  line-height: 1.8;
+}
+
+/* --- フッター --- */
+.site-footer {
+  background-color: var(--ink);
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--gold);
+}
+
+/* --- レスポンシブ --- */
+@media (max-width: 600px) {
+  .dual-cards { grid-template-columns: 1fr; }
+  .site-nav { display: none; }
+  .page-hero { padding: 3.5rem 1.5rem 3rem; }
+  .craft-section { padding: 3rem 1.25rem; }
+}
