@@ -1,3 +1,153 @@
-h1 {
-color: royalblue;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #F2F5F0;
+  --ink:        #1A2420;
+  --green-dark: #2C4A3E;
+  --green-mid:  #3D6B5A;
+  --ai:         #2B4162;
+  --accent:     #7BA05B;
+  --muted:      #5C6E66;
+  --white:      #FFFFFF;
+  --border:     #C8D5C8;
+  --font-serif: 'Noto Serif JP', serif;
+  --font-sans:  'Noto Sans JP', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ヘッダー --- */
+.top-header {
+  background-color: var(--green-dark);
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.top-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 80%, rgba(43,65,98,0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(61,107,90,0.4) 0%, transparent 50%);
+}
+
+.top-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.top-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+  position: relative;
+}
+
+.top-header h1 span { color: #A8C89A; }
+
+.top-subtitle {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.55);
+  margin-top: 1.2rem;
+  position: relative;
+  letter-spacing: 0.05em;
+}
+
+/* --- カードグリッド --- */
+.top-grid {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.top-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--green-mid);
+  padding: 2.25rem 2rem;
+  text-decoration: none;
+  color: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.top-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(44,74,62,0.12);
+}
+
+.card-number {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--green-mid);
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 0.3rem;
+}
+
+.card-en {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.1rem;
+}
+
+.card-desc {
+  font-size: 0.875rem;
+  color: #4A5A52;
+  line-height: 1.9;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.card-arrow {
+  font-size: 0.8rem;
+  color: var(--green-mid);
+  letter-spacing: 0.05em;
+}
+
+/* --- フッター --- */
+.top-footer {
+  background-color: var(--green-dark);
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* --- レスポンシブ --- */
+@media (max-width: 560px) {
+  .top-grid { grid-template-columns: 1fr; padding: 2.5rem 1.25rem; }
+  .top-header { padding: 3.5rem 1.5rem 3rem; }
 }
